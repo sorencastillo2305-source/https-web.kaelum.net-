@@ -1,131 +1,305 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NauticStyle Server | Inicio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-</head>
-<body>
+:root {
+    --bg-dark-deep: #090d16;    /* Fondo ultra oscuro azulado */
+    --bg-dark-card: #111827;    /* Fondo de tarjetas */
+    --nautic-cyan: #00d2ff;     /* Cian brillante característico */
+    --nautic-blue: #0066cc;     /* Azul corporativo */
+    --text-main: #f3f4f6;       /* Blanco suave */
+    --text-muted: #9ca3af;      /* Gris para descripciones */
+}
 
-    <!-- Barra de Navegación Estilo Premium -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fa-solid fa-anchor logo-icon"></i>
-                <h2>NAUTIC<span>STYLE</span></h2>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#guias">Guías</a></li>
-                    <li><a href="#modalidades">Modalidades</a></li>
-                    <li><a href="#anuncios">Anuncios</a></li>
-                    <li><a href="https://store.nauticmc.net/" target="_blank" class="btn-shop">Tienda Oficial <i class="fa-solid fa-basket-shopping"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+}
 
-    <!-- Sección Hero Principal -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="badge">¡SERVIDOR INAUGURADO!</span>
-            <h1>Explora el Universo Marino</h1>
-            <p>Únete a la network más innovadora con Survival, BoxPvP y Gens. ¡Tu aventura comienza aquí!</p>
-            
-            <!-- Selector de IPs según plataforma tipo NauticMC -->
-            <div class="platform-selector">
-                <div class="ip-box java" onclick="copiarIP('://mine-nautic.com', 'Java')">
-                    <div class="ip-info">
-                        <span class="platform-title"><i class="fa-brands fa-java"></i> Minecraft Java</span>
-                        <span class="ip-text">://mine-nautic.com</span>
-                    </div>
-                    <span class="copy-badge">Copiar</span>
-                </div>
+body {
+    background-color: var(--bg-dark-deep) !important;
+    color: var(--text-main);
+    overflow-x: hidden;
+    padding-top: 80px;
+}
 
-                <div class="ip-box bedrock" onclick="copiarIP('://mine-nautic.com', 'Bedrock', '19132')">
-                    <div class="ip-info">
-                        <span class="platform-title"><i class="fa-solid fa-mobile-screen-button"></i> Bedrock / Móvil</span>
-                        <span class="ip-text">://mine-nautic.com (Puerto: 19132)</span>
-                    </div>
-                    <span class="copy-badge">Copiar</span>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Header Estilo Nautic */
+header {
+    background-color: rgba(9, 13, 22, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
 
-    <!-- Sección de Redes Sociales -->
-    <section class="social-section" id="guias">
-        <div class="section-title">
-            <h2>Únete a nuestra Comunidad</h2>
-            <p>Mantente al tanto de sorteos, soporte técnico y dinámicas diarias.</p>
-        </div>
-        <div class="social-grid">
-            <a href="https://discord.com/invite/nauticmc" target="_blank" class="social-card discord">
-                <i class="fa-brands fa-discord"></i>
-                <h3>Discord Oficial</h3>
-                <p>Comunidad, soporte y canales de voz</p>
-            </a>
-            <a href="#" target="_blank" class="social-card twitter">
-                <i class="fa-brands fa-x-twitter"></i>
-                <h3>Twitter / X</h3>
-                <p>Noticias de última hora y eventos</p>
-            </a>
-            <a href="#" class="social-card wiki">
-                <i class="fa-solid fa-book"></i>
-                <h3>Wiki & Guías</h3>
-                <p>Aprende comandos y mecánicas</p>
-            </a>
-        </div>
-    </section>
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
 
-    <!-- Sección de Anuncios / Noticias -->
-    <section class="news-section" id="anuncios">
-        <div class="section-title">
-            <h2>Anuncios Recientes</h2>
-            <p>Entérate de los últimos cambios y parches del servidor.</p>
-        </div>
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="news-body">
-                    <span class="news-date">15 de Junio, 2026</span>
-                    <h3>Mantenimiento Técnico Programado</h3>
-                    <p>Mejoras de rendimiento en las bases de datos globales del servidor y optimización del ping.</p>
-                    <a href="#" class="read-more">Leer más <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="news-body">
-                    <span class="news-date">28 de Mayo, 2026</span>
-                    <h3>¡Nueva Modalidad BoxPvP!</h3>
-                    <p>Ya está disponible la nueva temporada de BoxPvP con economías equilibradas y nuevos rangos.</p>
-                    <a href="#" class="read-more">Leer más <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-    <!-- Footer Simple -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 NauticStyle Network. No afiliado con Mojang Synergies AB.</p>
-        </div>
-    </footer>
+.logo-icon {
+    font-size: 24px;
+    color: var(--nautic-cyan);
+}
 
-    <!-- Sistema JavaScript de Copiado Eficiente -->
-    <script>
-        function copiarIP(ip, plataforma, puerto = "") {
-            navigator.clipboard.writeText(ip);
-            let mensaje = "¡IP de Minecraft " + plataforma + " copiada!";
-            if(puerto) mensaje += "\nNo olvides usar el puerto: " + puerto;
-            alert(mensaje);
-        }
-    </script>
-</body>
-</html>
+.logo h2 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.logo h2 span {
+    color: var(--nautic-cyan);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--nautic-cyan);
+}
+
+nav ul li a.btn-shop {
+    background: linear-gradient(135deg, var(--nautic-blue), var(--nautic-cyan));
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+}
+
+/* Hero Section con capas fluidas */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    background: radial-gradient(circle, rgba(17,24,39,0.8) 0%, rgba(9,13,22,1) 100%), url('https://unsplash.com') no-repeat center center/cover;
+    background-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.badge {
+    background-color: rgba(0, 210, 255, 0.1);
+    border: 1px solid var(--nautic-cyan);
+    color: var(--nautic-cyan);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin: 20px 0;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Selector de IP Dual */
+.platform-selector {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ip-box {
+    background-color: var(--bg-dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.ip-box:hover {
+    border-color: var(--nautic-cyan);
+    transform: translateY(-3px);
+}
+
+.platform-title {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.ip-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.copy-badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--nautic-cyan);
+}
+
+/* Secciones de Redes y Noticias */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.section-title p {
+    color: var(--text-muted);
+}
+
+.social-section, .news-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.social-card {
+    background-color: var(--bg-dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-card.discord i { color: #5865F2; font-size: 30px; }
+.social-card.twitter i { color: #fff; font-size: 30px; }
+.social-card.wiki i { color: var(--nautic-cyan); font-size: 30px; }
+
+.social-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--nautic-cyan);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background-color: var(--bg-dark-card);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.news-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-body {
+    padding: 30px;
+}
+
+.news-date {
+    font-size: 12px;
+    color: var(--nautic-cyan);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.news-body h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.news-body p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    color: var(--nautic-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer {
+    background-color: #05070b;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 15px; }
+    nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .hero-content h1 { font-size: 34px; }
+    .news-grid { grid-template-columns: 1fr; }
+}
