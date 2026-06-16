@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NauticStyle Server | Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Barra de Navegación Estilo Premium -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-anchor logo-icon"></i>
+                <h2>NAUTIC<span>STYLE</span></h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#guias">Guías</a></li>
+                    <li><a href="#modalidades">Modalidades</a></li>
+                    <li><a href="#anuncios">Anuncios</a></li>
+                    <li><a href="https://store.nauticmc.net/" target="_blank" class="btn-shop">Tienda Oficial <i class="fa-solid fa-basket-shopping"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero Principal -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">¡SERVIDOR INAUGURADO!</span>
+            <h1>Explora el Universo Marino</h1>
+            <p>Únete a la network más innovadora con Survival, BoxPvP y Gens. ¡Tu aventura comienza aquí!</p>
+            
+            <!-- Selector de IPs según plataforma tipo NauticMC -->
+            <div class="platform-selector">
+                <div class="ip-box java" onclick="copiarIP('://mine-nautic.com', 'Java')">
+                    <div class="ip-info">
+                        <span class="platform-title"><i class="fa-brands fa-java"></i> Minecraft Java</span>
+                        <span class="ip-text">://mine-nautic.com</span>
+                    </div>
+                    <span class="copy-badge">Copiar</span>
+                </div>
+
+                <div class="ip-box bedrock" onclick="copiarIP('://mine-nautic.com', 'Bedrock', '19132')">
+                    <div class="ip-info">
+                        <span class="platform-title"><i class="fa-solid fa-mobile-screen-button"></i> Bedrock / Móvil</span>
+                        <span class="ip-text">://mine-nautic.com (Puerto: 19132)</span>
+                    </div>
+                    <span class="copy-badge">Copiar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Redes Sociales -->
+    <section class="social-section" id="guias">
+        <div class="section-title">
+            <h2>Únete a nuestra Comunidad</h2>
+            <p>Mantente al tanto de sorteos, soporte técnico y dinámicas diarias.</p>
+        </div>
+        <div class="social-grid">
+            <a href="https://discord.com/invite/nauticmc" target="_blank" class="social-card discord">
+                <i class="fa-brands fa-discord"></i>
+                <h3>Discord Oficial</h3>
+                <p>Comunidad, soporte y canales de voz</p>
+            </a>
+            <a href="#" target="_blank" class="social-card twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+                <h3>Twitter / X</h3>
+                <p>Noticias de última hora y eventos</p>
+            </a>
+            <a href="#" class="social-card wiki">
+                <i class="fa-solid fa-book"></i>
+                <h3>Wiki & Guías</h3>
+                <p>Aprende comandos y mecánicas</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de Anuncios / Noticias -->
+    <section class="news-section" id="anuncios">
+        <div class="section-title">
+            <h2>Anuncios Recientes</h2>
+            <p>Entérate de los últimos cambios y parches del servidor.</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="news-body">
+                    <span class="news-date">15 de Junio, 2026</span>
+                    <h3>Mantenimiento Técnico Programado</h3>
+                    <p>Mejoras de rendimiento en las bases de datos globales del servidor y optimización del ping.</p>
+                    <a href="#" class="read-more">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="news-body">
+                    <span class="news-date">28 de Mayo, 2026</span>
+                    <h3>¡Nueva Modalidad BoxPvP!</h3>
+                    <p>Ya está disponible la nueva temporada de BoxPvP con economías equilibradas y nuevos rangos.</p>
+                    <a href="#" class="read-more">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Simple -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 NauticStyle Network. No afiliado con Mojang Synergies AB.</p>
+        </div>
+    </footer>
+
+    <!-- Sistema JavaScript de Copiado Eficiente -->
+    <script>
+        function copiarIP(ip, plataforma, puerto = "") {
+            navigator.clipboard.writeText(ip);
+            let mensaje = "¡IP de Minecraft " + plataforma + " copiada!";
+            if(puerto) mensaje += "\nNo olvides usar el puerto: " + puerto;
+            alert(mensaje);
+        }
+    </script>
+</body>
+</html>
